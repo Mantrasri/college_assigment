@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class Day6 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Q21: Convert decimal to binary
+        System.out.print("Enter decimal number: ");
+        int dec = sc.nextInt();
+        String binStr = "";
+        if (dec == 0) {
+            binStr = "0";
+        } else {
+            int t = dec;
+            while (t > 0) {
+                binStr = (t % 2) + binStr;
+                t /= 2;
+            }
+        }
+        System.out.println("Binary: " + binStr);
+
+        // Q22: Convert binary to decimal
+        System.out.print("Enter binary number: ");
+        int binNum = sc.nextInt();
+        int decVal = 0;
+        int base = 1;
+        int tBin = binNum;
+        while (tBin > 0) {
+            int lastDigit = tBin % 10;
+            decVal += lastDigit * base;
+            base = base * 2;
+            tBin /= 10;
+        }
+        System.out.println("Decimal: " + decVal);
+
+        // Q23: Count set bits in a number
+        System.out.print("Enter a number to count set bits: ");
+        int setBitNum = sc.nextInt();
+        int countBits = 0;
+        int tBits = setBitNum;
+        while (tBits > 0) {
+            countBits += (tBits & 1);
+            tBits = tBits >> 1;
+        }
+        System.out.println("Set bits count: " + countBits);
+
+        // Q24: Find x^n without pow()
+        System.out.print("Enter base (x): ");
+        int x = sc.nextInt();
+        System.out.print("Enter exponent (n): ");
+        int n = sc.nextInt();
+        long result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= x;
+        }
+        System.out.println("Result: " + result);
+    }
+}
