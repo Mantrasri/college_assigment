@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class Day3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // Q9: Check Prime
+        System.out.print("Enter number to check prime: ");
+        int num9 = sc.nextInt();
+        boolean isPrime = num9 > 1;
+        for (int i = 2; i * i <= num9; i++) {
+            if (num9 % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        System.out.println("Is Prime: " + isPrime);
+        
+        // Q10: Prime Numbers in Range
+        System.out.print("Enter lower bound: ");
+        int low = sc.nextInt();
+        System.out.print("Enter upper bound: ");
+        int high = sc.nextInt();
+        System.out.print("Prime numbers: ");
+        for (int i = low; i <= high; i++) {
+            if (i <= 1) continue;
+            boolean check = true;
+            for (int j = 2; j * j <= i; j++) {
+                if (i % j == 0) {
+                    check = false;
+                    break;
+                }
+            }
+            if (check) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+        
+        // Q11 & Q12: GCD and LCM
+        System.out.print("Enter first number: ");
+        int n1 = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int n2 = sc.nextInt();
+        int a = n1, b = n2;
+        while (b != 0) {
+            int t = b;
+            b = a % b;
+            a = t;
+        }
+        int gcd = a;
+        int lcm = (n1 * n2) / gcd;
+        System.out.println("GCD: " + gcd);
+        System.out.println("LCM: " + lcm);
+    }
+}
