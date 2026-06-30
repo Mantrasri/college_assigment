@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Day1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // Q1: Sum of N Natural Numbers
+        System.out.print("Enter N for natural numbers sum: ");
+        int n1 = sc.nextInt();
+        int sum1 = 0;
+        for (int i = 1; i <= n1; i++) {
+            sum1 = sum1 + i;
+        }
+        System.out.println("Sum: " + sum1);
+        
+        // Q2: Multiplication Table
+        System.out.print("Enter number for table: ");
+        int num2 = sc.nextInt();
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(num2 + " x " + i + " = " + (num2 * i));
+        }
+        
+        // Q3: Factorial
+        System.out.print("Enter number for factorial: ");
+        int num3 = sc.nextInt();
+        long fact = 1;
+        for (int i = num3; i >= 1; i--) {
+            fact = fact * i;
+        }
+        System.out.println("Factorial: " + fact);
+        
+        // Q4: Count Digits
+        System.out.print("Enter number to count digits: ");
+        int num4 = sc.nextInt();
+        int count = 0;
+        if (num4 == 0) {
+            count = 1;
+        } else {
+            while (num4 > 0) {
+                num4 = num4 / 10;
+                count++;
+            }
+        }
+        System.out.println("Total digits: " + count);
+    }
+}
