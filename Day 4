@@ -1,0 +1,75 @@
+import java.util.Scanner;
+
+public class Day4 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Q14: Find nth Fibonacci term
+        System.out.print("Enter n to find nth Fibonacci term: ");
+        int n14 = sc.nextInt();
+        if (n14 <= 1) {
+            System.out.println("Fibonacci term: " + (n14 == 1 ? 0 : 0)); 
+        } else {
+            int t1 = 0, t2 = 1, term = 0;
+            if (n14 == 2) {
+                term = 1;
+            }
+            for (int i = 3; i <= n14; i++) {
+                term = t1 + t2;
+                t1 = t2;
+                t2 = term;
+            }
+            System.out.println("Fibonacci term: " + term);
+        }
+
+        // Q15: Check Armstrong number
+        System.out.print("Enter a number to check Armstrong: ");
+        int num15 = sc.nextInt();
+        int original15 = num15;
+        int digits = 0;
+        int temp15 = num15;
+        while (temp15 > 0) {
+            digits++;
+            temp15 /= 10;
+        }
+        temp15 = num15;
+        int armSum = 0;
+        while (temp15 > 0) {
+            int remainder = temp15 % 10;
+            armSum += Math.pow(remainder, digits);
+            temp15 /= 10;
+        }
+        if (armSum == original15) {
+            System.out.println("The number is an Armstrong number.");
+        } else {
+            System.out.println("The number is not an Armstrong number.");
+        }
+
+        // Q16: Print Armstrong numbers in a range
+        System.out.print("Enter lower limit for Armstrong range: ");
+        int low16 = sc.nextInt();
+        System.out.print("Enter upper limit for Armstrong range: ");
+        int high16 = sc.nextInt();
+        System.out.print("Armstrong numbers in range: ");
+        for (int i = low16; i <= high16; i++) {
+            int checkNum = i;
+            int dCount = 0;
+            int t = checkNum;
+            while (t > 0) {
+                dCount++;
+                t /= 10;
+            }
+            t = checkNum;
+            int s = 0;
+            while (t > 0) {
+                int r = t % 10;
+                s += Math.pow(r, dCount);
+                t /= 10;
+            }
+            if (s == checkNum) {
+                System.out.print(checkNum + " ");
+            }
+        }
+        System.out.println();
+    }
+}
