@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class Day2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // Q5: Sum of Digits
+        System.out.print("Enter number for sum of digits: ");
+        int num5 = sc.nextInt();
+        int sumDigits = 0;
+        while (num5 > 0) {
+            sumDigits += num5 % 10;
+            num5 /= 10;
+        }
+        System.out.println("Sum of digits: " + sumDigits);
+        
+        // Q6: Reverse a Number
+        System.out.print("Enter number to reverse: ");
+        int num6 = sc.nextInt();
+        int rev = 0;
+        while (num6 > 0) {
+            rev = (rev * 10) + (num6 % 10);
+            num6 /= 10;
+        }
+        System.out.println("Reversed number: " + rev);
+        
+        // Q7: Product of Digits
+        System.out.print("Enter number for product of digits: ");
+        int num7 = sc.nextInt();
+        int prod = 1;
+        while (num7 > 0) {
+            prod *= (num7 % 10);
+            num7 /= 10;
+        }
+        System.out.println("Product of digits: " + prod);
+        
+        // Q8: Palindrome Number Check
+        System.out.print("Enter number to check palindrome: ");
+        int num8 = sc.nextInt();
+        int temp = num8;
+        int palRev = 0;
+        while (temp > 0) {
+            palRev = (palRev * 10) + (temp % 10);
+            temp /= 10;
+        }
+        if (num8 == palRev) {
+            System.out.println("The number is a palindrome.");
+        } else {
+            System.out.println("The number is not a palindrome.");
+        }
+    }
+}
