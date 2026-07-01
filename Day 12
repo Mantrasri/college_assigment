@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class Day12 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number to check palindrome: ");
+        int p = sc.nextInt();
+        System.out.println("Is Palindrome: " + isPalindrome(p));
+
+        System.out.print("Enter a number to check Armstrong: ");
+        int a = sc.nextInt();
+        System.out.println("Is Armstrong: " + isArmstrong(a));
+
+        System.out.print("Enter n for nth Fibonacci term: ");
+        int f = sc.nextInt();
+        System.out.println("Fibonacci term: " + getFibonacci(f));
+
+        System.out.print("Enter a number to check perfect number: ");
+        int perf = sc.nextInt();
+        System.out.println("Is Perfect: " + isPerfect(perf));
+    }
+
+    public static boolean isPalindrome(int n) {
+        int original = n;
+        int rev = 0;
+        while (n > 0) {
+            rev = (rev * 10) + (n % 10);
+            n /= 10;
+        }
+        return original == rev;
+    }
+
+    public static boolean isArmstrong(int n) {
+        int original = n;
+        int count = 0;
+        int temp = n;
+        while (temp > 0) {
+            count++;
+            temp /= 10;
+        }
+        temp = n;
+        int sum = 0;
+        while (temp > 0) {
+            int d = temp % 10;
+            sum += Math.pow(d, count);
+            temp /= 10;
+        }
+        return original == sum;
+    }
+
+    public static int getFibonacci(int n) {
+        if (n <= 1) return 0;
+        if (n == 2) return 1;
+        int t1 = 0, t2 = 1, term = 0;
+        for (int i = 3; i <= n; i++) {
+            term = t1 + t2;
+            t1 = t2;
+            t2 = term;
+        }
+        return term;
+    }
+
+    public static boolean isPerfect(int n) {
+        int sum = 0;
+        for (int i = 1; i < n; i++) {
+            if (n % i == 0) sum += i;
+        }
+        return sum == n;
+    }
+}
