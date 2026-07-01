@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class Day11 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter two numbers for sum: ");
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        System.out.println("Sum: " + sum(a, b));
+
+        System.out.print("Enter two numbers to find maximum: ");
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        System.out.println("Maximum: " + max(x, y));
+
+        System.out.print("Enter a number to check prime: ");
+        int p = sc.nextInt();
+        System.out.println("Is Prime: " + isPrime(p));
+
+        System.out.print("Enter a number for factorial: ");
+        int f = sc.nextInt();
+        System.out.println("Factorial: " + factorial(f));
+    }
+
+    public static int sum(int num1, int num2) {
+        return num1 + num2;
+    }
+
+    public static int max(int num1, int num2) {
+        if (num1 > num2) {
+            return num1;
+        } else {
+            return num2;
+        }
+    }
+
+    public static boolean isPrime(int n) {
+        if (n <= 1) return false;
+        for (int i = 2; i * i <= n; i++) {
+            if (n % i == 0) return false;
+        }
+        return true;
+    }
+
+    public static long factorial(int n) {
+        long f = 1;
+        for (int i = 1; i <= n; i++) {
+            f *= i;
+        }
+        return f;
+    }
+}
