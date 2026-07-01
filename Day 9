@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class Day9 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter size/rows: ");
+        int n = sc.nextInt();
+
+        // Q33: Reverse star pattern
+        System.out.println("Q33 Pattern:");
+        for (int i = n; i >= 1; i--) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+
+        // Q34: Reverse number triangle
+        System.out.println("Q34 Pattern:");
+        for (int i = n; i >= 1; i--) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j + " ");
+            }
+            System.out.println();
+        }
+
+        // Q35: Repeated character pattern
+        System.out.println("Q35 Pattern:");
+        char ch = 'A';
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(ch + " ");
+            }
+            System.out.println();
+            ch++;
+        }
+
+        // Q36: Hollow square pattern
+        System.out.println("Q36 Pattern:");
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (i == 1 || i == n || j == 1 || j == n) {
+                    System.out.print("* ");
+                } else {
+                    System.out.print("  ");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
