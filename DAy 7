@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+public class Day7 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Q25: Recursive factorial
+        System.out.print("Enter number for recursive factorial: ");
+        int fNum = sc.nextInt();
+        System.out.println("Factorial: " + factorial(fNum));
+
+        // Q26: Recursive Fibonacci
+        System.out.print("Enter n for nth Fibonacci term: ");
+        int fibNum = sc.nextInt();
+        System.out.println("Fibonacci term: " + fibonacci(fibNum));
+
+        // Q27: Recursive sum of digits
+        System.out.print("Enter number for recursive sum of digits: ");
+        int sdNum = sc.nextInt();
+        System.out.println("Sum of digits: " + sumOfDigits(sdNum));
+
+        // Q28: Recursive reverse number
+        System.out.print("Enter number to reverse recursively: ");
+        int revNum = sc.nextInt();
+        System.out.print("Reversed number: ");
+        if (revNum == 0) {
+            System.out.println(0);
+        } else {
+            reversePrint(revNum);
+            System.out.println();
+        }
+    }
+
+    public static long factorial(int n) {
+        if (n <= 1) return 1;
+        return n * factorial(n - 1);
+    }
+
+    public static int fibonacci(int n) {
+        if (n <= 1) return 0;
+        if (n == 2) return 1;
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    public static int sumOfDigits(int n) {
+        if (n == 0) return 0;
+        return (n % 10) + sumOfDigits(n / 10);
+    }
+
+    public static void reversePrint(int n) {
+        if (n == 0) return;
+        System.out.print(n % 10);
+        reversePrint(n / 10);
+    }
+}
